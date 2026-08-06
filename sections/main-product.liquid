@@ -504,7 +504,7 @@
                                                             <button type="button"
                                                                     class="shiprocket-green-btn btn w-100 border-0 text-white p-3 rounded-1 position-relative overflow-hidden cursor-pointer"
                                                                     {% if current_variant.available == false %} disabled="disabled"{% endif %}
-                                                                    onclick="if (typeof shiprocketCheckoutEvents !== 'undefined') { shiprocketCheckoutEvents.buyProduct(event); } else { var f = this.closest('form'); if(f) f.submit(); }"
+                                                                    onclick="var form = this.closest('form'); var srBtn = form ? form.querySelector('.sr-headless-checkout, .cf-occ-btn, [data-type=product], .shopify-payment-button__button') : null; if(srBtn && srBtn !== this) { srBtn.click(); } else if (typeof shiprocketCheckoutEvents !== 'undefined') { shiprocketCheckoutEvents.buyProduct(event); } else if (typeof onBuyNowClick === 'function') { onBuyNowClick(event); } else if (form) { form.submit(); }"
                                                                     style="background: #288855; height: 56px; border-radius: 4px;">
                                                                 <div class="d-flex align-items-center justify-content-between h-100 px-2">
                                                                     <!-- BUY NOW Text -->
@@ -531,7 +531,7 @@
                                                         </div>
 
                                                         {% if block.settings.enable_payment_button %}
-                                                            <div class="d-none">
+                                                            <div class="main-payment-button-container position-absolute opacity-0" style="width:1px; height:1px; overflow:hidden; z-index:-1; pointer-events:none;">
                                                                 {{ form | payment_button }}
                                                             </div>
                                                         {% endif %}
@@ -607,7 +607,7 @@
                                                                 type="button"
                                                                 class="shiprocket-green-btn btn flex-grow-1 fw-bold d-flex align-items-center justify-content-center text-white px-2"
                                                                 {% if current_variant.available == false %} disabled="disabled"{% endif %}
-                                                                onclick="if (typeof shiprocketCheckoutEvents !== 'undefined') { shiprocketCheckoutEvents.buyProduct(event); } else { var f = this.closest('form'); if(f) f.submit(); }"
+                                                                onclick="var form = this.closest('form'); var srBtn = form ? form.querySelector('.sr-headless-checkout, .cf-occ-btn, [data-type=product], .shopify-payment-button__button') : null; if(srBtn && srBtn !== this) { srBtn.click(); } else if (typeof shiprocketCheckoutEvents !== 'undefined') { shiprocketCheckoutEvents.buyProduct(event); } else if (typeof onBuyNowClick === 'function') { onBuyNowClick(event); } else if (form) { form.submit(); }"
                                                                 style="background: #288855; border: none; color: #ffffff !important; height: 42px; font-size: 14px; font-weight: 700; border-radius: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"
                                                         >
                                                             <span>Buy Now</span>
