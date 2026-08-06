@@ -551,7 +551,7 @@
                                                                 class="btn flex-grow-1 fw-bold d-flex align-items-center justify-content-center text-white px-2"
                                                                 {% if current_variant.available == false %} disabled="disabled"{% endif %}
                                                                 onclick="if (typeof shiprocketCheckoutEvents !== 'undefined') { shiprocketCheckoutEvents.buyProduct(event); } else { var f = this.closest('form'); if(f) f.submit(); }"
-                                                                style="background: #ff9f00; border: none; color: #ffffff !important; height: 42px; font-size: 14px; font-weight: 700; border-radius: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"
+                                                                style="background: #e6302a; border: none; color: #ffffff !important; height: 42px; font-size: 14px; font-weight: 700; border-radius: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"
                                                         >
                                                             <span>Buy Now</span>
                                                             <span class="fs-12 fw-normal opacity-90 ms-1">{% if current_variant.price %}• {{ current_variant.price | money }}{% endif %}</span>
