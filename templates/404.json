@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "settings": {
+        "background_image": "shopify:\/\/shop_images\/image_426_1.jpg",
+        "color_text": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

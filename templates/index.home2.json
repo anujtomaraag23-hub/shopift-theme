@@ -1,0 +1,377 @@
+{
+  "sections": {
+    "banner_parallax_dpdNPb": {
+      "type": "banner-parallax",
+      "settings": {
+        "layout": "full-width",
+        "image": "shopify:\/\/shop_images\/image_19.jpg",
+        "type": "scroll",
+        "speed": 0.5,
+        "preheading": "New in",
+        "heading": "EXTRA BAZZ",
+        "subheading": "<p>Immerse yourself in crystal-clear audio while blocking out all distractions.<\/p>",
+        "button_label": "Shop Now",
+        "button_link": "shopify:\/\/collections\/all",
+        "button_style": "light",
+        "enable_scroll": false,
+        "id_scroll": "",
+        "max_width": 920,
+        "image_height": "h-100vh",
+        "heading_tag": "h2",
+        "heading_size": "h-custom",
+        "text_box_position": "flex-middle-center",
+        "text_alignment": "text-md-center text-lg-center",
+        "use_custom_colors": true,
+        "color_text": "#ffffff",
+        "color_background": "rgba(0,0,0,0)",
+        "color_background_gradient": "",
+        "use_overlay": false,
+        "colors_overlay": "#0b0b0b",
+        "overlay_opacity": 0.4,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "image_height_mobile": "h-mb-400",
+        "text_alignment_mobile": "text-start",
+        "show_border": false,
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "marque_VHVAgD": {
+      "type": "marque",
+      "blocks": {
+        "marque_b7CTDj": {
+          "type": "marque",
+          "settings": {
+            "content": "<p><strong>EXTRA BAZZ<\/strong><\/p>",
+            "link": ""
+          }
+        },
+        "marque_6QaYe6": {
+          "type": "marque",
+          "settings": {
+            "content": "<p><strong>MAXIMUM PORTABILITY<\/strong><\/p>",
+            "link": ""
+          }
+        },
+        "marque_chdkjJ": {
+          "type": "marque",
+          "settings": {
+            "content": "<p><strong> MAXIMUM COMFORT<\/strong><\/p>",
+            "link": ""
+          }
+        },
+        "marque_GUQhBz": {
+          "type": "marque",
+          "settings": {
+            "content": "<p><strong>EXTRA BAZZ<\/strong><\/p>",
+            "link": ""
+          }
+        },
+        "marque_kF7TYx": {
+          "type": "marque",
+          "settings": {
+            "content": "<p><strong>MAXIMUM PORTABILITY<\/strong><\/p>",
+            "link": ""
+          }
+        },
+        "marque_waamTL": {
+          "type": "marque",
+          "settings": {
+            "content": "<p><strong> MAXIMUM COMFORT<\/strong><\/p>",
+            "link": ""
+          }
+        },
+        "marque_cph7Jf": {
+          "type": "marque",
+          "settings": {
+            "content": "<p><strong>EXTRA BAZZ<\/strong><\/p>",
+            "link": ""
+          }
+        },
+        "marque_RfJn6H": {
+          "type": "marque",
+          "settings": {
+            "content": "<p><strong>MAXIMUM PORTABILITY<\/strong><\/p>",
+            "link": ""
+          }
+        },
+        "marque_cePnxY": {
+          "type": "marque",
+          "settings": {
+            "content": "<p><strong> MAXIMUM COMFORT<\/strong><\/p>",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "marque_b7CTDj",
+        "marque_6QaYe6",
+        "marque_chdkjJ",
+        "marque_GUQhBz",
+        "marque_kF7TYx",
+        "marque_waamTL",
+        "marque_cph7Jf",
+        "marque_RfJn6H",
+        "marque_cePnxY"
+      ],
+      "settings": {
+        "layout": "full-width",
+        "time": 59,
+        "reverse": false,
+        "label_font_size": "h1",
+        "height_image": "icon-h-medium",
+        "use_custom_colors": true,
+        "color_text": "#ffffff",
+        "color_background": "#fd6035",
+        "color_background_gradient": "",
+        "margin_top": 0,
+        "margin_bottom": 86,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "featured_collection_WRjJHN": {
+      "type": "featured-collection",
+      "settings": {
+        "layout": "container page-width",
+        "style": "style-1",
+        "preheading": "",
+        "heading": "Look We Love",
+        "heading_tag": "h2",
+        "heading_size": "h1",
+        "heading_alignment": "text-center",
+        "subheading": "<p>Explore the latest search trends in children's shopping this week.<\/p>",
+        "collection": "newarrivals",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "columns_tablet": 3,
+        "columns_mobile": "2",
+        "gutter": 4,
+        "show_view_all": true,
+        "button_label": "Shop All",
+        "button_link": "shopify:\/\/collections\/all",
+        "button_style": "outline-dark",
+        "enable_slider": false,
+        "style_slider": "slide-dark",
+        "enable_navigation": true,
+        "navigation_icon": "style-1",
+        "enable_pagination": true,
+        "slider_visual": "progressbar",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "loop": true,
+        "image_height": "adapt",
+        "image_position": "object_position_middle_center",
+        "enable_quick_add": true,
+        "use_custom_colors": false,
+        "color_text": "#000000",
+        "color_background": "#ffffff",
+        "color_background_gradient": "",
+        "enable_parallax": true,
+        "type": "scroll",
+        "speed": 0.5,
+        "margin_top": 0,
+        "margin_bottom": 100,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "banner_parallax_n7zi3R": {
+      "type": "banner-parallax",
+      "settings": {
+        "layout": "full-width",
+        "image": "shopify:\/\/shop_images\/image_22.jpg",
+        "type": "scroll",
+        "speed": 0.4,
+        "preheading": "Extra Bazz",
+        "heading": "Surprise Sounds From Little Guy",
+        "subheading": "",
+        "button_label": "Shop Now",
+        "button_link": "shopify:\/\/collections\/all",
+        "button_style": "light",
+        "enable_scroll": false,
+        "id_scroll": "",
+        "max_width": 430,
+        "image_height": "h-100vh",
+        "heading_tag": "h2",
+        "heading_size": "h1",
+        "text_box_position": "flex-middle-right",
+        "text_alignment": "text-md-end text-lg-end",
+        "use_custom_colors": true,
+        "color_text": "#ffffff",
+        "color_background": "rgba(0,0,0,0)",
+        "color_background_gradient": "",
+        "use_overlay": false,
+        "colors_overlay": "#ffffff",
+        "overlay_opacity": 0.3,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "image_height_mobile": "h-mb-400",
+        "text_alignment_mobile": "text-start",
+        "show_border": false,
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "banner_parallax_3N4Jgz": {
+      "type": "banner-parallax",
+      "settings": {
+        "layout": "full-width",
+        "image": "shopify:\/\/shop_images\/image_21.jpg",
+        "type": "scroll",
+        "speed": 0.4,
+        "preheading": "Extra Bazz",
+        "heading": "Long Battery Life Fast Charge",
+        "subheading": "",
+        "button_label": "Shop Now",
+        "button_link": "shopify:\/\/collections\/all",
+        "button_style": "light",
+        "enable_scroll": false,
+        "id_scroll": "",
+        "max_width": 490,
+        "image_height": "h-100vh",
+        "heading_tag": "h2",
+        "heading_size": "h1",
+        "text_box_position": "flex-middle-left",
+        "text_alignment": "text-md-start text-lg-start",
+        "use_custom_colors": true,
+        "color_text": "#ffffff",
+        "color_background": "rgba(0,0,0,0)",
+        "color_background_gradient": "",
+        "use_overlay": false,
+        "colors_overlay": "#ffffff",
+        "overlay_opacity": 0.3,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "image_height_mobile": "h-mb-400",
+        "text_alignment_mobile": "text-start",
+        "show_border": false,
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "banner_parallax_kGjPGD": {
+      "type": "banner-parallax",
+      "settings": {
+        "layout": "full-width",
+        "image": "shopify:\/\/shop_images\/image_25_1.jpg",
+        "type": "scroll",
+        "speed": 0.4,
+        "preheading": "Extra Bazz",
+        "heading": "Enjoy Your Life And Music Anywhere",
+        "subheading": "",
+        "button_label": "Shop Now",
+        "button_link": "shopify:\/\/collections\/all",
+        "button_style": "light",
+        "enable_scroll": false,
+        "id_scroll": "",
+        "max_width": 550,
+        "image_height": "h-100vh",
+        "heading_tag": "h2",
+        "heading_size": "h1",
+        "text_box_position": "flex-middle-right",
+        "text_alignment": "text-md-end text-lg-end",
+        "use_custom_colors": true,
+        "color_text": "#ffffff",
+        "color_background": "rgba(0,0,0,0)",
+        "color_background_gradient": "",
+        "use_overlay": false,
+        "colors_overlay": "#ffffff",
+        "overlay_opacity": 0.3,
+        "margin_top": 0,
+        "margin_bottom": 90,
+        "image_height_mobile": "h-mb-400",
+        "text_alignment_mobile": "text-start",
+        "show_border": false,
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "featured_blog_qPW8fC": {
+      "type": "featured-blog",
+      "settings": {
+        "blog": "news",
+        "preheading": "",
+        "heading": "Blog post",
+        "subheading": "<p>Stay updated with the latest news, bringing you exclusive insights.<\/p>",
+        "heading_size": "h1",
+        "heading_tag": "h2",
+        "heading_alignment": "text-center",
+        "image_height": "adapt",
+        "image_position": "object_position_middle_center",
+        "post_limit": 3,
+        "blog_show_date": true,
+        "blog_show_excerpt": false,
+        "blog_show_comment": false,
+        "blog_show_read_more": true,
+        "show_view_all": true,
+        "button_style": "outline-dark",
+        "enable_slider": false,
+        "style_slider": "slide-dark",
+        "enable_navigation": true,
+        "enable_pagination": true,
+        "slider_visual": "bullets",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "loop": true,
+        "columns_desktop": 3,
+        "columns_tablet": 2,
+        "columns_mobile": "1",
+        "gutter": 4,
+        "border_radius": 4,
+        "use_custom_colors": false,
+        "color_text": "#000000",
+        "color_background": "#ffffff",
+        "color_background_gradient": "",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "custom_id": "",
+        "custom_class": ""
+      }
+    },
+    "map_7cbYeh": {
+      "type": "map",
+      "settings": {
+        "heading": "123 Fake St.Toronto, Canada",
+        "heading_size": "h3",
+        "address": "<p>At our tech store, we offer a wide range of high-quality electronic gadgets and devices. Visit us today and explore the world of technology like never before!<\/p>",
+        "map_address": "301 Front St W, Toronto",
+        "button_text": "Get directions",
+        "show_pin": true,
+        "api_key": "",
+        "background_image": "shopify:\/\/shop_images\/image_30.jpg",
+        "use_overlay": true,
+        "colors_overlay": "#000000",
+        "overlay_opacity": 0.3,
+        "background_image_position": "center center",
+        "use_custom_colors": true,
+        "color_text": "#ffffff",
+        "color_background": "#ffffff",
+        "color_background_gradient": "",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_id": "",
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "banner_parallax_dpdNPb",
+    "marque_VHVAgD",
+    "featured_collection_WRjJHN",
+    "banner_parallax_n7zi3R",
+    "banner_parallax_3N4Jgz",
+    "banner_parallax_kGjPGD",
+    "featured_blog_qPW8fC",
+    "map_7cbYeh"
+  ]
+}

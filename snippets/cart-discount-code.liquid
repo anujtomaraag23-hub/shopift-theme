@@ -1,0 +1,43 @@
+{% liquid
+    assign discount_form_title = settings.discount_form_title | strip_html
+    assign discount_apply_text = settings.discount_apply_text | strip_html
+    assign discount_applying_text = settings.discount_applying_text | strip_html
+    assign invalid_coupon_text = settings.invalid_coupon_text | strip_html
+%}
+
+<discount-code-handler class="discount-element-js"
+                       data-apply-text="{{ discount_apply_text }}"
+                       data-applying-text="{{ discount_applying_text }}"
+                       data-invalid-coupon-text="{{ invalid_coupon_text }}">
+
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <div class="cart-sidebar-discount">
+      <span data-cart-discount-code>
+       {{ discount_form_title }}
+        <span class="applied-discount-code-wrapper" style="display: none;" data-applied-discount-wrapper>
+          <span data-applied-discount-value></span>
+          <button type="button"
+                  class="btn btn-link p-1 bg-light"
+                  data-clear-discount-btn>
+            <i class="bi bi-x"></i>
+          </button>
+        </span>
+      </span>
+                <small data-discount-code-error></small>
+                <div class="input-group">
+                    <input
+                            type="text"
+                            class="mb-0 form-control px-4 me-2 input-group__field"
+                            autocomplete="on"
+                            value=""
+                            data-discount-code-input
+                    >
+                    <button type="button" class="btn {% if settings.dark_mode %}btn-light{% else %}btn-dark{% endif %}" data-apply-discount-btn>
+                        {{ discount_apply_text }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</discount-code-handler>
