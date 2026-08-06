@@ -493,32 +493,29 @@
                           {% if block.settings.enable_payment_button %} product-form__item--payment-button {% endif %}
                           {% if product.has_only_default_variant %} product-form__item--no-variants {% endif %}
                         "
-                                                        >
+                                                            <input type="hidden" value="true" id="fastrrCollectionPage" />
+                                                            <input type="hidden" value={{ product.url }} name="productUrl" />
+                                                            
+                                                            <!-- Main Page Buy Now Button (Matching Sticky Bar #e6302a Style) -->
+                                                            <button
+                                                                    type="button"
+                                                                    class="btn w-100 py-3 fw-bold text-white shadow-sm border-0 d-flex align-items-center justify-content-center gap-2 mb-2"
+                                                                    {% if current_variant.available == false %} disabled="disabled"{% endif %}
+                                                                    onclick="if (typeof shiprocketCheckoutEvents !== 'undefined') { shiprocketCheckoutEvents.buyProduct(event); } else { var f = this.closest('form'); if(f) f.submit(); }"
+                                                                    style="background: #e6302a !important; color: #ffffff !important; height: 48px; font-size: 16px; font-weight: 700; border-radius: 8px; letter-spacing: 0.3px; box-shadow: 0 4px 14px rgba(230, 48, 42, 0.3) !important;"
+                                                            >
+                                                                {% if current_variant.available %}
+                                                                    <span>BUY NOW</span>
+                                                                    <span class="fs-14 fw-normal opacity-90">{% if current_variant.price %}• {{ current_variant.price | money }}{% endif %}</span>
+                                                                {% else %}
+                                                                    <span>{{ 'products.product.sold_out' | t }}</span>
+                                                                {% endif %}
+                                                            </button>
+
                                                             {% if block.settings.enable_payment_button %}
-                                                                 {%-  unless product.selected_or_first_available_variant.available -%}
-          <style>
-           .sr-headless-checkout{
-            opacity:0.5;
-            cursor: not-allowed;
-            pointer-events: none;
-           }
-          </style>
-         {%- endunless -%}
-<input type="hidden" value="true" id="fastrrCollectionPage" />
-<input type="hidden" value={{ product.url }} name="productUrl" />
-                                                                {{ form | payment_button }}
-                                                            {% else %}
-                                                                <button
-                                                                        type="submit"
-                                                                        class="btn w-100 btn-primary py-3 fw-bold rounded-pill fs-16"
-                                                                        {% if current_variant.available == false %} disabled="disabled"{% endif %}
-                                                                >
-                                                                    {% if current_variant.available %}
-                                                                        Buy Now
-                                                                    {% else %}
-                                                                        {{ 'products.product.sold_out' | t }}
-                                                                    {% endif %}
-                                                                </button>
+                                                                <div class="main-payment-button-wrap d-none">
+                                                                    {{ form | payment_button }}
+                                                                </div>
                                                             {% endif %}
                                                         </div>
                                                     </div>
