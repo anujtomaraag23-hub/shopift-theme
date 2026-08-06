@@ -532,28 +532,35 @@
                                                         </div>
                                                     </div>
 
-                                                    <!-- Flipkart-style Mobile Sticky Bottom Action Bar -->
+                                                    <!-- Flipkart-style Mobile Sticky Bottom Action Bar (Quantity Selector + Buy Now Only) -->
                                                     <div class="flipkart-sticky-bar d-flex d-md-none position-fixed bottom-0 start-0 end-0 bg-white p-2 px-3 border-top shadow-lg align-items-center justify-content-between gap-2" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 1050; background: #ffffff; box-shadow: 0 -4px 12px rgba(0,0,0,0.12); padding: 10px 14px;">
-                                                        <button
-                                                                type="submit"
-                                                                name="add"
-                                                                class="btn btn-outline-dark flex-grow-1 py-2 fw-bold d-flex align-items-center justify-content-center gap-2 text-nowrap"
-                                                                {% if current_variant.available == false %} disabled="disabled"{% endif %}
-                                                                style="border: 1.5px solid #2874f0; color: #2874f0; background: #fff; height: 46px; font-size: 14px; font-weight: 700; border-radius: 8px;"
-                                                        >
-                                                            <i class="bi bi-cart-plus fs-16"></i>
-                                                            <span>Add To Cart</span>
-                                                        </button>
+                                                        <!-- Quantity Selector ([-] 1 [+]) -->
+                                                        <div class="d-flex align-items-center border rounded-2 bg-light px-2" style="height: 46px; border-color: #ced4da !important; min-width: 110px; justify-content: space-between;">
+                                                            <button
+                                                                    type="button"
+                                                                    class="btn btn-sm text-dark p-0 border-0 fw-bold fs-18 d-flex align-items-center justify-content-center"
+                                                                    onclick="var inp = this.closest('form').querySelector('input[name=quantity]'); if(inp && parseInt(inp.value) > 1){ inp.value = parseInt(inp.value) - 1; this.nextElementSibling.innerText = inp.value; if(typeof updateQuantity === 'function'){ updateQuantity(inp, 0); } }"
+                                                                    style="width: 30px; height: 36px; line-height: 1; cursor: pointer;"
+                                                            >−</button>
+                                                            <span class="fw-bold px-2 fs-15 sticky-qty-val" style="min-width: 20px; text-align: center;">1</span>
+                                                            <button
+                                                                    type="button"
+                                                                    class="btn btn-sm text-dark p-0 border-0 fw-bold fs-18 d-flex align-items-center justify-content-center"
+                                                                    onclick="var inp = this.closest('form').querySelector('input[name=quantity]'); if(inp){ inp.value = parseInt(inp.value) + 1; this.previousElementSibling.innerText = inp.value; if(typeof updateQuantity === 'function'){ updateQuantity(inp, 0); } }"
+                                                                    style="width: 30px; height: 36px; line-height: 1; cursor: pointer;"
+                                                            >+</button>
+                                                        </div>
                                                         
+                                                        <!-- Buy Now Button -->
                                                         <button
                                                                 type="button"
                                                                 class="btn flex-grow-1 py-2 fw-bold d-flex align-items-center justify-content-center gap-1 text-nowrap"
                                                                 {% if current_variant.available == false %} disabled="disabled"{% endif %}
                                                                 onclick="if (typeof shiprocketCheckoutEvents !== 'undefined') { shiprocketCheckoutEvents.buyProduct(event); } else { var f = this.closest('form'); if(f) f.submit(); }"
-                                                                style="background: #ff9f00; border: none; color: #fff; height: 46px; font-size: 14px; font-weight: 700; border-radius: 8px;"
+                                                                style="background: #ff9f00; border: none; color: #fff; height: 46px; font-size: 15px; font-weight: 700; border-radius: 8px;"
                                                         >
                                                             <span>Buy Now</span>
-                                                            <span class="fs-12 fw-normal opacity-90">{% if current_variant.price %}- {{ current_variant.price | money }}{% endif %}</span>
+                                                            <span class="fs-13 fw-normal opacity-90">{% if current_variant.price %}- {{ current_variant.price | money }}{% endif %}</span>
                                                         </button>
                                                     </div>
 
