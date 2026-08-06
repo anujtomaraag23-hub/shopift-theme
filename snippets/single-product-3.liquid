@@ -1,40 +1,95 @@
 {% assign featured_media = product.selected_or_first_available_variant.featured_media
         | default: product.featured_media
 %}
-<div class="row gx-3">
-    <div class="col-12 col-md-9">
-        {% for media in product.media %}
-            {% if forloop.index0 == 0 %}
-                <div
-                        class="position-sticky top-10 item mb-3"
-                        data-target="{{ section_id }}-{{ media.id }}"
-                        data-media-position="{{ forloop.index0 }}"
-                >
-                    <div class="border">
-                        {% render 'product-media-main', media: media, loop: enable_video_looping, enable_image_zoom: enable_image_zoom %}
-                    </div>
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-    <div class="col-12 col-md-3">
-        <div class="row gx-2">
-            {% for media in product.media %}
-                {% if forloop.index0 != 0 %}
-                    <div
-                            class="col-4 col-md-12 item mb-3"
-                            data-target="{{ section_id }}-{{ media.id }}"
-                            data-media-position="{{ forloop.index0 }}"
-                    >
-                        <div class="border">
-                            {% render 'product-media-main', media: media, loop: enable_video_looping, enable_image_zoom: enable_image_zoom %}
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
+
+<div class="product-gallery-custom mb-3">
+    <!-- Main Big Featured Image Container -->
+    <div class="main-featured-image-wrap mb-3 border rounded overflow-hidden position-relative bg-white" style="border-radius: 12px;">
+        <div id="MainFeaturedMedia-{{ section_id }}" class="position-relative">
+            {% render 'product-media-main', media: featured_media, loop: enable_video_looping, enable_image_zoom: enable_image_zoom %}
         </div>
     </div>
+
+    <!-- Horizontal Scrollable Thumbnail Strip (Compact Page Length, Zero Empty Space) -->
+    {% if product.media.size > 1 %}
+        <div class="product-thumbnails-scroll-wrap d-flex flex-nowrap overflow-auto py-1 px-1 gap-2 border-0" 
+             style="scrollbar-width: thin; -webkit-overflow-scrolling: touch; gap: 10px; border-radius: 8px;">
+            {% for media in product.media %}
+                <div class="thumb-item position-relative cursor-pointer flex-shrink-0 border rounded {% if forloop.first %}active-thumb border-dark border-2{% else %}border-light-subtle opacity-75{% endif %}"
+                     data-media-id="{{ media.id }}"
+                     data-full-src="{{ media | image_url: width: 1000 }}"
+                     data-zoom-src="{{ media | image_url: width: 1400, height: 1400 }}"
+                     data-aspect-ratio="{{ media.preview_image.aspect_ratio }}"
+                     data-alt="{{ media.preview_image.alt | escape }}"
+                     onclick="switchProductMainImage(this, 'MainFeaturedMedia-{{ section_id }}')"
+                     style="width: 72px; height: 72px; border-radius: 8px; overflow: hidden; transition: all 0.2s ease;">
+                    <img src="{{ media | image_url: width: 165 }}" 
+                         alt="{{ media.alt | escape }}" 
+                         class="w-100 h-100 object-fit-cover"
+                         loading="lazy" 
+                         width="72" 
+                         height="72" />
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 </div>
+
+<!-- Inline Switch Script -->
+<script>
+function switchProductMainImage(thumbElem, containerId) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    
+    // Update active thumbnail border highlight
+    var parent = thumbElem.parentElement;
+    if (parent) {
+        var thumbs = parent.querySelectorAll('.thumb-item');
+        thumbs.forEach(function(t) {
+            t.classList.remove('active-thumb', 'border-dark', 'border-2');
+            t.classList.add('border-light-subtle', 'opacity-75');
+        });
+    }
+    thumbElem.classList.add('active-thumb', 'border-dark', 'border-2');
+    thumbElem.classList.remove('border-light-subtle', 'opacity-75');
+    
+    // Update main image src & zoom attributes
+    var fullSrc = thumbElem.getAttribute('data-full-src');
+    var zoomSrc = thumbElem.getAttribute('data-zoom-src');
+    var alt = thumbElem.getAttribute('data-alt') || '';
+    
+    var mainImg = container.querySelector('img');
+    if (mainImg && fullSrc) {
+        mainImg.src = fullSrc;
+        mainImg.srcset = fullSrc;
+        if (alt) mainImg.alt = alt;
+    }
+    
+    var zoomWrapper = container.querySelector('[data-image-zoom-wrapper]');
+    if (zoomWrapper && zoomSrc) {
+        zoomWrapper.setAttribute('data-zoom', zoomSrc);
+    }
+}
+</script>
+
+<style>
+.product-thumbnails-scroll-wrap::-webkit-scrollbar {
+    height: 4px;
+}
+.product-thumbnails-scroll-wrap::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+.product-thumbnails-scroll-wrap::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+.thumb-item.active-thumb {
+    border-color: #000 !important;
+    opacity: 1 !important;
+    transform: scale(0.96);
+}
+</style>
 
 <noscript>
     {% capture product_image_size %}{{ height }}x{% endcapture %}
