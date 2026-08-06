@@ -523,44 +523,45 @@
                                                         </div>
                                                     </div>
 
-                                                    <!-- Premium Mobile Sticky Bottom Action Bar (Quantity + Buy Now Only) -->
-                                                    <div class="flipkart-sticky-bar d-flex d-md-none position-fixed bottom-0 start-0 end-0 bg-white border-top shadow-lg align-items-center justify-content-between gap-2 px-3 py-2"
-                                                         style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 1050; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1); border-top: 1px solid #e9ecef; padding: 8px 14px;">
+                                                    <!-- Minimalist Mobile Sticky Bottom Action Bar -->
+                                                    <div class="flipkart-sticky-bar d-flex d-md-none position-fixed bottom-0 start-0 end-0 bg-white border-top align-items-center justify-content-between gap-2 px-3 py-2"
+                                                         style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 1050; background: #ffffff; border-top: 1px solid #e2e8f0; box-shadow: 0 -2px 10px rgba(0,0,0,0.06); padding: 8px 12px;">
                                                         
-                                                        <!-- Quantity Counter Pill -->
-                                                        <div class="d-flex align-items-center rounded-pill border bg-light px-2" style="height: 46px; min-width: 120px; border-color: #cbd5e1 !important; background-color: #f8fafc !important; justify-content: space-between;">
+                                                        <!-- Minimalist Quantity Selector -->
+                                                        <div class="d-flex align-items-center justify-content-between rounded border bg-light px-1"
+                                                             style="height: 42px; width: 95px; min-width: 95px; border-color: #cbd5e1 !important; background: #f8fafc !important; border-radius: 6px;">
                                                             <button
                                                                     type="button"
-                                                                    class="btn btn-sm text-dark p-0 border-0 fw-bold d-flex align-items-center justify-content-center shadow-sm rounded-circle bg-white"
+                                                                    class="btn p-0 border-0 fw-bold d-flex align-items-center justify-content-center text-dark"
                                                                     onclick="var inp = this.closest('form').querySelector('input[name=quantity]'); if(inp && parseInt(inp.value) > 1){ inp.value = parseInt(inp.value) - 1; this.nextElementSibling.innerText = inp.value; if(typeof updateQuantity === 'function'){ updateQuantity(inp, 0); } }"
-                                                                    style="width: 32px; height: 32px; font-size: 18px; line-height: 1; cursor: pointer; color: #0f172a !important;"
+                                                                    style="width: 28px; height: 100%; font-size: 18px; line-height: 1; background: transparent; color: #1e293b !important; font-family: monospace;"
                                                             >−</button>
-                                                            <span class="fw-bold px-1 fs-15 text-dark flex-grow-1 text-center sticky-qty-val" style="min-width: 20px; color: #0f172a !important;">1</span>
+                                                            <span class="fw-bold fs-14 text-dark text-center sticky-qty-val" style="width: 22px; color: #0f172a !important;">1</span>
                                                             <button
                                                                     type="button"
-                                                                    class="btn btn-sm text-dark p-0 border-0 fw-bold d-flex align-items-center justify-content-center shadow-sm rounded-circle bg-white"
+                                                                    class="btn p-0 border-0 fw-bold d-flex align-items-center justify-content-center text-dark"
                                                                     onclick="var inp = this.closest('form').querySelector('input[name=quantity]'); if(inp){ inp.value = parseInt(inp.value) + 1; this.previousElementSibling.innerText = inp.value; if(typeof updateQuantity === 'function'){ updateQuantity(inp, 0); } }"
-                                                                    style="width: 32px; height: 32px; font-size: 18px; line-height: 1; cursor: pointer; color: #0f172a !important;"
+                                                                    style="width: 28px; height: 100%; font-size: 18px; line-height: 1; background: transparent; color: #1e293b !important; font-family: monospace;"
                                                             >+</button>
                                                         </div>
                                                         
-                                                        <!-- Sleek Buy Now Pill Button -->
+                                                        <!-- Minimalist Buy Now Button -->
                                                         <button
                                                                 type="button"
-                                                                class="btn flex-grow-1 fw-bold d-flex align-items-center justify-content-center gap-1 text-nowrap text-white rounded-pill px-3 shadow"
+                                                                class="btn flex-grow-1 fw-bold d-flex align-items-center justify-content-center text-white px-2"
                                                                 {% if current_variant.available == false %} disabled="disabled"{% endif %}
                                                                 onclick="if (typeof shiprocketCheckoutEvents !== 'undefined') { shiprocketCheckoutEvents.buyProduct(event); } else { var f = this.closest('form'); if(f) f.submit(); }"
-                                                                style="background: linear-gradient(135deg, #ff9f00 0%, #ff7e00 100%); border: none; color: #ffffff !important; height: 46px; font-size: 15px; font-weight: 700; letter-spacing: 0.2px; box-shadow: 0 4px 12px rgba(255, 159, 0, 0.35) !important;"
+                                                                style="background: #ff9f00; border: none; color: #ffffff !important; height: 42px; font-size: 14px; font-weight: 700; border-radius: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"
                                                         >
                                                             <span>Buy Now</span>
-                                                            <span class="fs-13 fw-normal opacity-90 ms-1">{% if current_variant.price %}• {{ current_variant.price | money }}{% endif %}</span>
+                                                            <span class="fs-12 fw-normal opacity-90 ms-1">{% if current_variant.price %}• {{ current_variant.price | money }}{% endif %}</span>
                                                         </button>
                                                     </div>
 
                                                     <style>
                                                     @media (max-width: 767.98px) {
                                                         body {
-                                                            padding-bottom: 68px !important;
+                                                            padding-bottom: 60px !important;
                                                         }
                                                     }
                                                     </style>
