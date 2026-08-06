@@ -370,6 +370,12 @@
                                                 class="mb-{{ block.settings.margin_bottom }} mt-{{ block.settings.margin_top }} border-bottom pb-3"
                                                 {{ block.shopify_attributes }}
                                         >
+                                            <!-- Urgency Stock Counter -->
+                                            <div class="d-flex align-items-center gap-2 mb-2 px-2 py-1 rounded" style="background: #fff7ed; border: 1px solid #ffedd5; width: fit-content;">
+                                                <span class="spinner-grow spinner-grow-sm text-danger" role="status" style="width: 8px; height: 8px;"></span>
+                                                <span class="fw-bold fs-12 text-danger">🔥 Selling fast! Only <span class="fw-black">7 items</span> left in stock</span>
+                                            </div>
+
                                             <div class="d-flex align-items-center justify-content-between flex-wrap">
                                                 <div class="product__price style-large mb-0">
                                                     <div class="d-flex flex-nowrap align-items-center">
@@ -529,6 +535,46 @@
                                                                 {{ form | payment_button }}
                                                             </div>
                                                         {% endif %}
+
+                                                        <!-- High-Converting Trust & Assurance Grid (NewDru D2C style tailored for Zoopey) -->
+                                                        <div class="zoopey-trust-features-grid row gx-2 gy-2 my-3 py-2 border-top border-bottom">
+                                                            <div class="col-6 col-md-3">
+                                                                <div class="d-flex align-items-center gap-2 p-2 rounded bg-light h-100" style="background: #f8fafc !important; border: 1px solid #f1f5f9;">
+                                                                    <i class="bi bi-truck fs-20 text-primary" style="color: #288855 !important;"></i>
+                                                                    <div>
+                                                                        <div class="fw-bold fs-12 text-dark" style="line-height: 1.2;">Free Shipping</div>
+                                                                        <div class="fs-10 text-muted" style="line-height: 1.1;">Prepaid Orders</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6 col-md-3">
+                                                                <div class="d-flex align-items-center gap-2 p-2 rounded bg-light h-100" style="background: #f8fafc !important; border: 1px solid #f1f5f9;">
+                                                                    <i class="bi bi-wallet2 fs-20 text-primary" style="color: #288855 !important;"></i>
+                                                                    <div>
+                                                                        <div class="fw-bold fs-12 text-dark" style="line-height: 1.2;">COD Available</div>
+                                                                        <div class="fs-10 text-muted" style="line-height: 1.1;">Pay on Delivery</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6 col-md-3">
+                                                                <div class="d-flex align-items-center gap-2 p-2 rounded bg-light h-100" style="background: #f8fafc !important; border: 1px solid #f1f5f9;">
+                                                                    <i class="bi bi-arrow-counterclockwise fs-20 text-primary" style="color: #288855 !important;"></i>
+                                                                    <div>
+                                                                        <div class="fw-bold fs-12 text-dark" style="line-height: 1.2;">7 Days Replacement</div>
+                                                                        <div class="fs-10 text-muted" style="line-height: 1.1;">Hassle-free</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6 col-md-3">
+                                                                <div class="d-flex align-items-center gap-2 p-2 rounded bg-light h-100" style="background: #f8fafc !important; border: 1px solid #f1f5f9;">
+                                                                    <i class="bi bi-shield-check fs-20 text-primary" style="color: #288855 !important;"></i>
+                                                                    <div>
+                                                                        <div class="fw-bold fs-12 text-dark" style="line-height: 1.2;">100% Secure</div>
+                                                                        <div class="fs-10 text-muted" style="line-height: 1.1;">Verified Payments</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
 
                                                     <!-- Prepaid Discount Banner + Minimalist Mobile Sticky Bottom Action Bar -->
