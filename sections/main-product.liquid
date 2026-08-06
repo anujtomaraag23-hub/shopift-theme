@@ -494,8 +494,27 @@
                           {% if product.has_only_default_variant %} product-form__item--no-variants {% endif %}
                         "
                                                         >
-                              
+                                                            <button
+                                                                    type="submit"
+                                                                    name="add"
+                                                                    aria-label="{{ 'products.product.add_to_cart' | t }}"
+                                                                    class="btn w-100 mb-0 btn-primary mb-2"
+                                                                    {% if current_variant.available == false %} disabled="disabled"{% endif %}
+                                                                    aria-haspopup="dialog"
+                                                                    data-add-to-cart
+                                                            >
+                                                                <span data-add-to-cart-text>
+                                                                    {% unless current_variant.available %}
+                                                                        {{ 'products.product.sold_out' | t }}
+                                                                    {% else %}
+                                                                        {{ 'products.product.add_to_cart' | t }}
+                                                                    {% endunless %}
+                                                                </span>
+                                                                <span class="hide" data-loader>
+                                                                    <span class="icon-repeat"><i class="bi bi-arrow-repeat"></i></span>
+                                                                </span>
                                                             </button>
+
                                                             {% if block.settings.enable_payment_button %}
                                                                  {%-  unless product.selected_or_first_available_variant.available -%}
           <style>
@@ -512,6 +531,40 @@
                                                             {% endif %}
                                                         </div>
                                                     </div>
+
+                                                    <!-- Flipkart-style Mobile Sticky Bottom Action Bar -->
+                                                    <div class="flipkart-sticky-bar d-flex d-md-none position-fixed bottom-0 start-0 end-0 bg-white p-2 px-3 border-top shadow-lg align-items-center justify-content-between gap-2" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 1050; background: #ffffff; box-shadow: 0 -4px 12px rgba(0,0,0,0.12); padding: 10px 14px;">
+                                                        <button
+                                                                type="submit"
+                                                                name="add"
+                                                                class="btn btn-outline-dark flex-grow-1 py-2 fw-bold d-flex align-items-center justify-content-center gap-2 text-nowrap"
+                                                                {% if current_variant.available == false %} disabled="disabled"{% endif %}
+                                                                style="border: 1.5px solid #2874f0; color: #2874f0; background: #fff; height: 46px; font-size: 14px; font-weight: 700; border-radius: 8px;"
+                                                        >
+                                                            <i class="bi bi-cart-plus fs-16"></i>
+                                                            <span>Add To Cart</span>
+                                                        </button>
+                                                        
+                                                        <button
+                                                                type="button"
+                                                                class="btn flex-grow-1 py-2 fw-bold d-flex align-items-center justify-content-center gap-1 text-nowrap"
+                                                                {% if current_variant.available == false %} disabled="disabled"{% endif %}
+                                                                onclick="if (typeof shiprocketCheckoutEvents !== 'undefined') { shiprocketCheckoutEvents.buyProduct(event); } else { var f = this.closest('form'); if(f) f.submit(); }"
+                                                                style="background: #ff9f00; border: none; color: #fff; height: 46px; font-size: 14px; font-weight: 700; border-radius: 8px;"
+                                                        >
+                                                            <span>Buy Now</span>
+                                                            <span class="fs-12 fw-normal opacity-90">{% if current_variant.price %}- {{ current_variant.price | money }}{% endif %}</span>
+                                                        </button>
+                                                    </div>
+
+                                                    <style>
+                                                    @media (max-width: 767.98px) {
+                                                        body {
+                                                            padding-bottom: 65px !important;
+                                                        }
+                                                    }
+                                                    </style>
+
                                                     <div
                                                             class="product-single__store-availability-container"
                                                             data-store-availability-container
