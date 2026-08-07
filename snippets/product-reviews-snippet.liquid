@@ -1,0 +1,355 @@
+{% comment %}
+  Zoopey – Product Reviews Snippet
+  Rendered directly at the bottom of main-product.liquid
+{% endcomment %}
+
+{%- liquid
+  assign avg_rating  = product.metafields.reviews.rating.value | default: 4.7
+  assign total_count = product.metafields.reviews.rating_count.value | default: '14,467'
+-%}
+
+<section id="product-reviews-snippet-{{ section.id }}" class="zoopey-reviews-section">
+  <div class="zoopey-reviews-inner">
+
+    <!-- Section Header -->
+    <div class="zr-header">
+      <h2 class="zr-title">Customer Reviews</h2>
+      <p class="zr-subtitle">What our buyers are saying about this product</p>
+    </div>
+
+    <!-- Rating Summary -->
+    <div class="zr-summary">
+
+      <!-- Left: Big score -->
+      <div class="zr-score-block">
+        <span class="zr-big-score">{{ avg_rating }}</span>
+        <div class="zr-stars-text" aria-label="{{ avg_rating }} out of 5">
+          {%- assign rf = avg_rating | times: 1.0 -%}
+          {%- assign fs = rf | floor -%}
+          {%- assign rm = rf | minus: fs -%}
+          {%- for i in (1..5) -%}
+            {%- if i <= fs -%}<span class="zr-star zr-star--full">&#9733;</span>
+            {%- elsif i == fs | plus: 1 and rm >= 0.5 -%}<span class="zr-star zr-star--half">&#9733;</span>
+            {%- else -%}<span class="zr-star zr-star--empty">&#9733;</span>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+        <p class="zr-total-count">{{ total_count }} verified ratings</p>
+      </div>
+
+      <div class="zr-divider-v"></div>
+
+      <!-- Right: Breakdown bars -->
+      <div class="zr-bars-block">
+        {%- assign bar_data = '5,72|4,19|3,6|2,2|1,1' | split: '|' -%}
+        {%- for bar in bar_data -%}
+          {%- assign bp = bar | split: ',' -%}
+          {%- assign pct = bp[1] | times: 1 -%}
+          <div class="zr-bar-row">
+            <span class="zr-bar-label">{{ bp[0] }}</span>
+            <div class="zr-bar-track"><div class="zr-bar-fill" style="width:{{ pct }}%"></div></div>
+            <span class="zr-bar-pct">{{ pct }}%</span>
+          </div>
+        {%- endfor -%}
+      </div>
+
+    </div>
+
+    <!-- Toolbar -->
+    <div class="zr-toolbar">
+      <p class="zr-showing">Showing <strong>9</strong> of {{ total_count }} reviews</p>
+      <div class="zr-sort">
+        <label for="zr-sort-select" class="zr-sort-label">Sort by</label>
+        <select id="zr-sort-select" class="zr-sort-select">
+          <option value="recent">Most Recent</option>
+          <option value="helpful">Most Helpful</option>
+          <option value="high">Highest Rated</option>
+          <option value="low">Lowest Rated</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Review Cards -->
+    <div class="zr-reviews-grid">
+
+      <div class="zr-card">
+        <div class="zr-card-top">
+          <div class="zr-avatar">A</div>
+          <div class="zr-card-meta"><p class="zr-reviewer-name">Ananya Kapoor</p><p class="zr-reviewer-location">Mumbai</p></div>
+          <div class="zr-card-stars"><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span></div>
+        </div>
+        <h3 class="zr-card-title">Finally stopped paying for iCloud</h3>
+        <p class="zr-card-body">My iPhone 15 was constantly showing storage full and I was spending ₹219 every month on iCloud. Bought the 1TB version of this drive and transferred over 40,000 photos in one night. The Lightning port works perfectly for charging while the drive is plugged in. Absolute game changer. Should have bought this 2 years ago.</p>
+        <div class="zr-card-footer"><span class="zr-verified">Verified Purchase</span><span class="zr-date">31 Jul 2026</span></div>
+      </div>
+
+      <div class="zr-card">
+        <div class="zr-card-top">
+          <div class="zr-avatar">R</div>
+          <div class="zr-card-meta"><p class="zr-reviewer-name">Rohit Nair</p><p class="zr-reviewer-location">Kochi</p></div>
+          <div class="zr-card-stars"><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span></div>
+        </div>
+        <h3 class="zr-card-title">Best accessory for iPhone videographers</h3>
+        <p class="zr-card-body">I shoot a lot of short films and travel reels on my iPhone 14 Pro. Raw 4K footage eats up space insanely fast. The 2TB variant lets me offload directly from my iPhone without needing a laptop on location. The USB-C end connects to my MacBook Air M2 and files transfer at full speed. Build quality feels solid and premium. Worth every rupee.</p>
+        <div class="zr-card-footer"><span class="zr-verified">Verified Purchase</span><span class="zr-date">28 Jul 2026</span></div>
+      </div>
+
+      <div class="zr-card">
+        <div class="zr-card-top">
+          <div class="zr-avatar">S</div>
+          <div class="zr-card-meta"><p class="zr-reviewer-name">Sneha Pillai</p><p class="zr-reviewer-location">Bangalore</p></div>
+          <div class="zr-card-stars"><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span></div>
+        </div>
+        <h3 class="zr-card-title">Works flawlessly with iPhone and MacBook both</h3>
+        <p class="zr-card-body">Bought the 1TB version primarily for my iPhone 13 Pro Max. The dual connector design is genius — Lightning goes into iPhone, USB-C goes into MacBook. No adapters, no cables mess. Transferred 12GB of photos in under 3 minutes. The built-in Lightning port on the drive also charges my phone while I transfer. Highly recommend to anyone with full iPhone storage.</p>
+        <div class="zr-card-footer"><span class="zr-verified">Verified Purchase</span><span class="zr-date">22 Jul 2026</span></div>
+      </div>
+
+      <div class="zr-card">
+        <div class="zr-card-top">
+          <div class="zr-avatar">V</div>
+          <div class="zr-card-meta"><p class="zr-reviewer-name">Vikram Tiwari</p><p class="zr-reviewer-location">Jaipur</p></div>
+          <div class="zr-card-stars"><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--empty">&#9733;</span></div>
+        </div>
+        <h3 class="zr-card-title">Good but app required for some features</h3>
+        <p class="zr-card-body">Got the 3TB model for my wedding photography backup workflow. The drive itself is very quick and connects perfectly to my iPhone 15. Only thing worth mentioning is you need the Files app on iPhone to browse contents directly. Once you know that it works like a charm. Transfer of 8000 RAW photos took about 20 minutes which is very acceptable. Would still give 5 stars for the hardware itself.</p>
+        <div class="zr-card-footer"><span class="zr-verified">Verified Purchase</span><span class="zr-date">16 Jul 2026</span></div>
+      </div>
+
+      <div class="zr-card">
+        <div class="zr-card-top">
+          <div class="zr-avatar">D</div>
+          <div class="zr-card-meta"><p class="zr-reviewer-name">Divya Menon</p><p class="zr-reviewer-location">Chennai</p></div>
+          <div class="zr-card-stars"><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span></div>
+        </div>
+        <h3 class="zr-card-title">Travelling with this is a dream</h3>
+        <p class="zr-card-body">I travel frequently and always worried about losing my phone photos. This drive is so compact it fits in my purse. Went on a 15-day trip to Himachal, shot over 3000 photos and backed up every night directly from iPhone. The battery continued charging through the Lightning port the whole time. Zero data loss, zero hassle. Absolutely love it.</p>
+        <div class="zr-card-footer"><span class="zr-verified">Verified Purchase</span><span class="zr-date">9 Jul 2026</span></div>
+      </div>
+
+      <div class="zr-card">
+        <div class="zr-card-top">
+          <div class="zr-avatar">M</div>
+          <div class="zr-card-meta"><p class="zr-reviewer-name">Manish Agarwal</p><p class="zr-reviewer-location">Delhi</p></div>
+          <div class="zr-card-stars"><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span></div>
+        </div>
+        <h3 class="zr-card-title">Bought the 5TB — completely worth it</h3>
+        <p class="zr-card-body">As a content creator I generate a massive amount of footage every month. The 5TB version is insane value. I moved my entire iCloud library of 2.3TB onto this drive and cancelled my iCloud plan immediately. The read and write speeds are excellent. Connects to both my iPhone 14 and Windows PC via USB-C without any issues. One of the best purchases I have made this year.</p>
+        <div class="zr-card-footer"><span class="zr-verified">Verified Purchase</span><span class="zr-date">3 Jul 2026</span></div>
+      </div>
+
+      <div class="zr-card">
+        <div class="zr-card-top">
+          <div class="zr-avatar">P</div>
+          <div class="zr-card-meta"><p class="zr-reviewer-name">Pooja Reddy</p><p class="zr-reviewer-location">Hyderabad</p></div>
+          <div class="zr-card-stars"><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span></div>
+        </div>
+        <h3 class="zr-card-title">My kids love it too</h3>
+        <p class="zr-card-body">Bought 2 of these — one for myself and one for my teenage daughter who was always running out of iPhone space. She shoots videos and reels constantly. The 2TB version gives her practically unlimited storage. Setup was zero effort, she figured it out in minutes. The Lightning charging port on the drive is a very thoughtful touch — she can back up and charge at the same time. Excellent product.</p>
+        <div class="zr-card-footer"><span class="zr-verified">Verified Purchase</span><span class="zr-date">27 Jun 2026</span></div>
+      </div>
+
+      <div class="zr-card">
+        <div class="zr-card-top">
+          <div class="zr-avatar">K</div>
+          <div class="zr-card-meta"><p class="zr-reviewer-name">Karan Mehta</p><p class="zr-reviewer-location">Ahmedabad</p></div>
+          <div class="zr-card-stars"><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--empty">&#9733;</span></div>
+        </div>
+        <h3 class="zr-card-title">Solid for iPhone to PC transfers</h3>
+        <p class="zr-card-body">Use this mainly to move files between my iPhone 13 and office Windows laptop. The USB-C connector works perfectly on my laptop and the Lightning end plugs into iPhone without any adapter. Transfer speeds are noticeably faster than using iCloud. Knocked one star only because the drive can feel slightly warm during long transfers but it has never caused any issues. Otherwise a very reliable product.</p>
+        <div class="zr-card-footer"><span class="zr-verified">Verified Purchase</span><span class="zr-date">19 Jun 2026</span></div>
+      </div>
+
+      <div class="zr-card">
+        <div class="zr-card-top">
+          <div class="zr-avatar">T</div>
+          <div class="zr-card-meta"><p class="zr-reviewer-name">Tanvi Sharma</p><p class="zr-reviewer-location">Pune</p></div>
+          <div class="zr-card-stars"><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span><span class="zr-star zr-star--full">&#9733;</span></div>
+        </div>
+        <h3 class="zr-card-title">Gifted this to my mom — she uses it daily</h3>
+        <p class="zr-card-body">My mom has an iPhone SE and constantly gets storage full notifications. I ordered the 1TB version for her and showed her how to use it once. She now independently backs up her photos every week on her own. It is that simple to use. The fact that you can still charge the phone through the Lightning port on the drive meant she did not have to change her charging habit at all. Brilliant design, great product.</p>
+        <div class="zr-card-footer"><span class="zr-verified">Verified Purchase</span><span class="zr-date">11 Jun 2026</span></div>
+      </div>
+
+    </div>
+
+    <!-- Load More -->
+    <div class="zr-load-more-wrap">
+      <button class="zr-load-more-btn" type="button">Load more reviews</button>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.zoopey-reviews-section {
+  background: #ffffff;
+  border-top: 1px solid #f0f0f0;
+  padding: 72px 0 80px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  clear: both;
+}
+.zoopey-reviews-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.zr-header { margin-bottom: 44px; }
+.zr-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 6px;
+  letter-spacing: -0.4px;
+}
+.zr-subtitle { font-size: 14px; color: #6b7280; margin: 0; }
+
+.zr-summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  margin-bottom: 44px;
+  flex-wrap: wrap;
+}
+.zr-score-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 140px;
+}
+.zr-big-score {
+  font-size: 72px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1;
+  letter-spacing: -3px;
+}
+.zr-stars-text { display: flex; gap: 3px; margin-top: 8px; }
+.zr-star { font-size: 20px; line-height: 1; }
+.zr-star--full  { color: #f59e0b; }
+.zr-star--half  { color: #fcd34d; }
+.zr-star--empty { color: #e5e7eb; }
+.zr-total-count { font-size: 13px; color: #6b7280; margin-top: 8px; text-align: center; }
+
+.zr-divider-v {
+  width: 1px;
+  background: #e5e7eb;
+  align-self: stretch;
+  min-height: 120px;
+  flex-shrink: 0;
+}
+.zr-bars-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 240px;
+  max-width: 420px;
+  justify-content: center;
+}
+.zr-bar-row { display: flex; align-items: center; gap: 10px; }
+.zr-bar-label { font-size: 13px; font-weight: 600; color: #374151; width: 12px; text-align: right; flex-shrink: 0; }
+.zr-bar-track { flex: 1; height: 6px; background: #f3f4f6; border-radius: 999px; overflow: hidden; }
+.zr-bar-fill { height: 100%; background: #0f172a; border-radius: 999px; }
+.zr-bar-pct { font-size: 12px; color: #9ca3af; width: 30px; text-align: right; flex-shrink: 0; }
+
+.zr-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.zr-showing { font-size: 14px; color: #6b7280; margin: 0; }
+.zr-sort { display: flex; align-items: center; gap: 10px; }
+.zr-sort-label { font-size: 13px; color: #6b7280; white-space: nowrap; }
+.zr-sort-select {
+  font-size: 13px;
+  font-weight: 500;
+  color: #0f172a;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 7px 28px 7px 12px;
+  background: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.zr-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.zr-card {
+  border: 1.5px solid #f0f0f0;
+  border-radius: 16px;
+  padding: 24px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.zr-card:hover {
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+.zr-card-top { display: flex; align-items: center; gap: 14px; }
+.zr-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.zr-card-meta { flex: 1; }
+.zr-reviewer-name { font-size: 14px; font-weight: 700; color: #0f172a; margin: 0 0 2px; }
+.zr-reviewer-location { font-size: 12px; color: #9ca3af; margin: 0; }
+.zr-card-stars { display: flex; gap: 2px; flex-shrink: 0; }
+.zr-card-stars .zr-star { font-size: 14px; }
+.zr-card-title { font-size: 15px; font-weight: 700; color: #0f172a; margin: 0; line-height: 1.4; }
+.zr-card-body { font-size: 14px; line-height: 1.65; color: #4b5563; margin: 0; }
+.zr-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid #f3f4f6;
+  margin-top: auto;
+}
+.zr-verified { font-size: 11px; font-weight: 600; color: #16a34a; text-transform: uppercase; letter-spacing: 0.4px; }
+.zr-date { font-size: 12px; color: #9ca3af; }
+
+.zr-load-more-wrap { display: flex; justify-content: center; }
+.zr-load-more-btn {
+  padding: 14px 40px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  background: #ffffff;
+  border: 1.5px solid #0f172a;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+}
+.zr-load-more-btn:hover { background: #0f172a; color: #ffffff; }
+
+@media (max-width: 768px) {
+  .zoopey-reviews-section { padding: 48px 0 56px; }
+  .zr-title { font-size: 22px; }
+  .zr-summary { gap: 28px; }
+  .zr-divider-v { display: none; }
+  .zr-big-score { font-size: 56px; }
+  .zr-reviews-grid { grid-template-columns: 1fr; }
+}
+</style>

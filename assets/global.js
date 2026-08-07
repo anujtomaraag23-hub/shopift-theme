@@ -411,11 +411,21 @@ class VariantSelects extends HTMLElement {
   }
 
   updateVariantInput() {
-    const productForms = document.querySelectorAll(`#product-form-${this.dataset.section}, #product-form-installment-${this.dataset.section}`);
+    if (!this.currentVariant) return;
+    window.selectedVariantId = this.currentVariant.id;
+    const productForms = document.querySelectorAll(`#product-form-${this.dataset.section}, #product-form-installment-${this.dataset.section}, form[action*="/cart/add"], form[data-product-form]`);
     productForms.forEach((productForm) => {
-      const input = productForm.querySelector('input[name="id"]');
-      input.value = this.currentVariant.id;
-      input.dispatchEvent(new Event('change', { bubbles: true }));
+      const inputs = productForm.querySelectorAll('[name="id"]');
+      inputs.forEach((input) => {
+        input.value = this.currentVariant.id;
+        if (input.tagName === 'SELECT') {
+          Array.from(input.options).forEach((opt) => {
+            opt.selected = (opt.value == this.currentVariant.id);
+          });
+        }
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+      });
     });
   }
 
@@ -465,18 +475,17 @@ class VariantSelects extends HTMLElement {
     const requestedVariantId = this.currentVariant.id;
     const sectionId = this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section;
 
-    fetch(`${this.dataset.url}?variant=${requestedVariantId}&section_id=${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`)
+    fetch(`${this.dataset.url}?variant=${requestedVariantId}&section_id=${sectionId}`)
       .then((response) => response.text())
       .then((responseText) => {
-        // prevent unnecessary ui changes from abandoned selections
         if (this.currentVariant.id !== requestedVariantId) return;
 
-        const html = new DOMParser().parseFromString(responseText, 'text/html')
-        const destination = document.getElementById(`price-${this.dataset.section}`);
-        const source = html.getElementById(`price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
-        const skuSource = html.getElementById(`Sku-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
+        const html = new DOMParser().parseFromString(responseText, 'text/html');
+        const destination = document.getElementById(`price-${this.dataset.section}`) || document.querySelector('[id^="price-"]') || document.querySelector('.price-single');
+        const source = html.getElementById(`price-${this.dataset.originalSection ? this.dataset.originalSection : sectionId}`) || html.querySelector('[id^="price-"]') || html.querySelector('.price-single');
+        const skuSource = html.getElementById(`Sku-${this.dataset.originalSection ? this.dataset.originalSection : sectionId}`);
         const skuDestination = document.getElementById(`Sku-${this.dataset.section}`);
-        const inventorySource = html.getElementById(`Inventory-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
+        const inventorySource = html.getElementById(`Inventory-${this.dataset.originalSection ? this.dataset.originalSection : sectionId}`);
         const inventoryDestination = document.getElementById(`Inventory-${this.dataset.section}`);
 
         if (source && destination) destination.innerHTML = source.innerHTML;
@@ -486,7 +495,7 @@ class VariantSelects extends HTMLElement {
           skuDestination.classList.toggle('visibility-hidden', skuSource.classList.contains('visibility-hidden'));
         }
 
-        const price = document.getElementById(`price-${this.dataset.section}`);
+        const price = document.getElementById(`price-${this.dataset.section}`) || destination;
 
         if (price) price.classList.remove('visibility-hidden');
 
@@ -494,12 +503,6 @@ class VariantSelects extends HTMLElement {
 
         const addButtonUpdated = html.getElementById(`ProductSubmitButton-${sectionId}`);
         this.toggleAddButton(addButtonUpdated ? addButtonUpdated.hasAttribute('disabled') : true, window.variantStrings.soldOut);
-
-        // publish(PUB_SUB_EVENTS.variantChange, {data: {
-        //   sectionId,
-        //   html,
-        //   variant: this.currentVariant
-        // }});
       });
   }
 

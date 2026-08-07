@@ -343,8 +343,56 @@
                                         >
                                             <div class="d-flex flex-wrap align-items-center">
                                                 <h1 class="mb-0 {{ block.settings.heading_size }}">{{ product.title }}</h1>
-
                                             </div>
+
+                                            <!-- Rating Badge below title -->
+                                            <div class="zoopey-rating-badge d-inline-flex align-items-center mt-2">
+                                                <span class="zoopey-rating-star">★</span>
+                                                <span class="zoopey-rating-score">
+                                                    {{ product.metafields.reviews.rating.value | default: '4.7' }}
+                                                </span>
+                                                <span class="zoopey-rating-divider">|</span>
+                                                <span class="zoopey-rating-count">
+                                                    {{ product.metafields.reviews.rating_count.value | default: '14,467' }}
+                                                    ratings
+                                                </span>
+                                            </div>
+
+                                            <style>
+                                              .zoopey-rating-badge {
+                                                border: 1.5px solid #d1d5db;
+                                                border-radius: 8px;
+                                                padding: 5px 14px;
+                                                gap: 7px;
+                                                background: #fff;
+                                                font-family: inherit;
+                                                cursor: default;
+                                                user-select: none;
+                                              }
+                                              .zoopey-rating-star {
+                                                color: #f5a623;
+                                                font-size: 18px;
+                                                line-height: 1;
+                                              }
+                                              .zoopey-rating-score {
+                                                font-size: 15px;
+                                                font-weight: 700;
+                                                color: #111;
+                                                line-height: 1;
+                                              }
+                                              .zoopey-rating-divider {
+                                                color: #9ca3af;
+                                                font-size: 15px;
+                                                font-weight: 400;
+                                                line-height: 1;
+                                              }
+                                              .zoopey-rating-count {
+                                                font-size: 14px;
+                                                font-weight: 400;
+                                                color: #374151;
+                                                line-height: 1;
+                                              }
+                                            </style>
                                         </div>
                                     {% when 'payment' %}
                                         <div
@@ -367,6 +415,7 @@
                                     {% when 'price' %}
 
                                         <div
+                                                id="price-{{ section.id }}"
                                                 class="mb-{{ block.settings.margin_bottom }} mt-{{ block.settings.margin_top }} border-bottom pb-3"
                                                 {{ block.shopify_attributes }}
                                         >
@@ -414,13 +463,15 @@
                                                 class="{% if block.settings.picker_type == 'dropdown' %} style-dropdown {% endif %} mb-{{ block.settings.margin_bottom }} mt-{{ block.settings.margin_top }}"
                                                 {{ block.shopify_attributes }}
                                         >
+                                            {% assign product_form_id = 'product-form-' | append: section.id %}
                                             {% capture form_classes %}
                                                 product-form product-form-{{ section.id }}
                                                 {% if section.settings.enable_payment_button and product.has_only_default_variant %} product-form--payment-btn-no-variants {% endif %}
                                                 {% if current_variant.available == false %} product-form--variant-sold-out {% endif %}
                                             {% endcapture %}
                                             <ajax-cart-product-form>
-                                                {% form 'product', product, class: form_classes, novalidate: 'novalidate', data-product-form: '' %}
+                                                {% form 'product', product, id: product_form_id, class: form_classes, novalidate: 'novalidate', data-product-form: '' %}
+                                                    <input type="hidden" name="id" id="ProductFormVariantId-{{ section.id }}" value="{{ product.selected_or_first_available_variant.id }}">
                                                     {{ form | payment_terms }}
                                                     {% render 'product-variant-picker', product: product, block: block %}
                                                     <select name="id" id="ProductSelect-{{ section.id }}"
@@ -949,6 +1000,10 @@
         </div>
     </div>
 </div>
+
+<!-- Product Reviews Section (Embedded directly into main-product) -->
+{% render 'product-reviews-snippet' %}
+
 {% assign popups = section.blocks | where: 'type', 'popup' %}
 {%- for block in popups -%}
     <modal-dialog id="PopupModal-{{ block.id }}" class="pop-up-modal" {{ block.shopify_attributes }}>
