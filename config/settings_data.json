@@ -1,1 +1,237 @@
-{"current":{"favicon":"shopify:\/\/shop_images\/ZOOPEY_LOGO_1.png","logo":"shopify:\/\/shop_images\/ZOOPEY_LOGO2.png","logo_white":"shopify:\/\/shop_images\/logo-white.png","logo_width":110,"currency_code_enabled":false,"type_base_font":"jost_n4","type_base_size":14,"type_header_font":"rubik_n5","type_header_base_size":16,"type_font":"body","type_card_product_font":"body","type_navigation_size":14,"page_width":1600,"color_primary":"#0b0b0b","button_color_primary":"#ffffff","body_bg":"#ffffff","body_color":"#0b0b0b","color_border_main":"#ebebeb","enable_wishlist":true,"wishlist_page":"wishlist","type_button_size":18,"buttons_letter_spacing":0,"type_button_font":"body","buttons_text_style":"inherit","style_products":"style-1","show_vendor":true,"show_border":true,"color_border":"#f5f5f5","background_card":"#f5f5f5","background_card_gradient":"","border_radius":4,"title_collection":"TOP PRODUCTS","collection":"newarrivals","share_facebook":true,"share_twitter":true,"share_pinterest":true,"social_facebook_link":"https:\/\/facebook.com\/","social_instagram_link":"http:\/\/instagram.com\/","social_youtube_link":"","social_tiktok_link":"","social_twitter_link":"#","social_snapchat_link":"","social_pinterest_link":"#","social_vimeo_link":"#","cart_goal_enable":true,"goal_value":1000,"enable_discount_form":true,"discount_form_title":"Discount Code:","discount_apply_text":"Apply","discount_applying_text":"Applyin","invalid_coupon_text":"Please Enter Valid Coupon Code","enable_ajax":true,"enable_drawer_cart":true,"title_collection_suggest":"You may also like these products","collection_suggest":"zoopy","text_style":"uppercase","background_card_image":"#f8f7f4","spacing_header":50,"enable_breadcrumbs":true,"breadcrumbs_alignment":"text-start","breadcrumbs_background_color":"#f9f9f9","breadcrumbs_background_image":"shopify:\/\/shop_images\/banner_1.jpg","rating_badge_stars":"<!-- Start of Judge.me code -->\n              <div class='jdgm-widget jdgm-preview-badge'>\n                  {{ product.metafields.judgeme.badge }} \n              <\/div>\n              <!-- End of Judge.me code -->","mode_version":false,"social_tumblr_link":"#","enable_product_suggest":true,"predictive_search_show_vendor":false,"predictive_search_show_price":true,"color_badge_background":"#000000","color_sale_text":"#000000","color_sale_background":"#ff8500","enable_bootstrap":false,"buttons_border_thickness":1,"buttons_radius":0,"buttons_min_height":50,"color_image_overlay":"#000000","color_secondary":"#000000","color_text":"#000000","color_body_text":"#000000","color_button":"#ff8500","color_button_text":"#000000","color_button_secondary":"#269700","color_small_button_text_border":"#fff","color_schemes":{"background-1":{"settings":{"background":"#ffffff","background_gradient":"","text":"#000000","button":"#ff8500","button_label":"#ffffff","secondary_button_label":"#ffffff"}},"background-2":{"settings":{"background":"#f6f6f6","background_gradient":"","text":"#000000","button":"#ff8500","button_label":"#ffffff","secondary_button_label":"#121212"}},"inverse":{"settings":{"background":"#242833","background_gradient":"","text":"#ffffff","button":"#ffffff","button_label":"#000000","secondary_button_label":"#ffffff"}},"accent-1":{"settings":{"background":"#121212","background_gradient":"","text":"#ffffff","button":"#ffffff","button_label":"#121212","secondary_button_label":"#ffffff"}},"accent-2":{"settings":{"background":"#fcf9ec","background_gradient":"","text":"#000000","button":"#113034","button_label":"#ffffff","secondary_button_label":"#000000"}},"scheme-ac0dd53c-d5a9-4639-9a77-0e9add251e4d":{"settings":{"background":"#f5f7f7","background_gradient":"","text":"#ffffff","button":"#ff8500","button_label":"#000000","secondary_button_label":"#ffffff"}}},"sections":{"custom-color-swatches":{"type":"custom-color-swatches","blocks":{"color_item_K4eWW7":{"type":"color_item","settings":{"title":"Light blue","background":"#cbd6dc","background_gradient":""}},"color_item_jxfbQd":{"type":"color_item","settings":{"title":"Dark green","background":"#4e513b","background_gradient":""}},"color_item_H8Ad8T":{"type":"color_item","settings":{"title":"Dark blue","background":"#1b1f2d","background_gradient":""}}},"block_order":["color_item_K4eWW7","color_item_jxfbQd","color_item_H8Ad8T"],"settings":{}},"password-header":{"type":"password-header","settings":{"logo":"shopify:\/\/shop_images\/LOGO_d23b0e42-37b6-4216-9c04-c07b37dcc194.png","logo_max_width":260,"header":"Coming Soon"}},"password-footer":{"type":"password-footer","settings":{"show_share_buttons":true}}},"content_for_index":[],"blocks":{"1439897083625640197":{"type":"shopify:\/\/apps\/cart-by-breeze\/blocks\/breeze-cart\/f3bd0f31-4ceb-4abf-b1f0-9a82592084c4","disabled":false,"settings":{}},"10835620152770840175":{"type":"shopify:\/\/apps\/xb-sticky-add-to-cart\/blocks\/satc\/019ab3af-f172-72de-8bba-d1737c6c0d1e","disabled":true,"settings":{}},"23348512398354824":{"type":"shopify:\/\/apps\/wi-atc\/blocks\/wizz-atc-embed\/dc8c508e-8349-4d4e-adb8-536f2f71bace","disabled":true,"settings":{}}}}}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "favicon": "shopify://shop_images/ZOOPEY_LOGO_1.png",
+    "logo": "shopify://shop_images/ZOOPEY_LOGO2.png",
+    "logo_white": "shopify://shop_images/logo-white.png",
+    "logo_width": 110,
+    "currency_code_enabled": false,
+    "type_base_font": "jost_n4",
+    "type_base_size": 14,
+    "type_header_font": "rubik_n5",
+    "type_header_base_size": 16,
+    "type_font": "body",
+    "type_card_product_font": "body",
+    "type_navigation_size": 14,
+    "page_width": 1600,
+    "color_primary": "#0b0b0b",
+    "button_color_primary": "#ffffff",
+    "body_bg": "#ffffff",
+    "body_color": "#0b0b0b",
+    "color_border_main": "#ebebeb",
+    "enable_wishlist": true,
+    "wishlist_page": "wishlist",
+    "type_button_size": 18,
+    "buttons_letter_spacing": 0,
+    "type_button_font": "body",
+    "buttons_text_style": "inherit",
+    "style_products": "style-1",
+    "show_vendor": true,
+    "show_border": true,
+    "color_border": "#f5f5f5",
+    "background_card": "#f5f5f5",
+    "background_card_gradient": "",
+    "border_radius": 4,
+    "title_collection": "TOP PRODUCTS",
+    "collection": "newarrivals",
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_facebook_link": "https://facebook.com/",
+    "social_instagram_link": "http://instagram.com/",
+    "social_youtube_link": "",
+    "social_tiktok_link": "",
+    "social_twitter_link": "#",
+    "social_snapchat_link": "",
+    "social_pinterest_link": "#",
+    "social_vimeo_link": "#",
+    "cart_goal_enable": true,
+    "goal_value": 1000,
+    "enable_discount_form": true,
+    "discount_form_title": "Discount Code:",
+    "discount_apply_text": "Apply",
+    "discount_applying_text": "Applyin",
+    "invalid_coupon_text": "Please Enter Valid Coupon Code",
+    "enable_ajax": true,
+    "enable_drawer_cart": true,
+    "title_collection_suggest": "You may also like these products",
+    "collection_suggest": "zoopy",
+    "text_style": "uppercase",
+    "background_card_image": "#f8f7f4",
+    "spacing_header": 50,
+    "enable_breadcrumbs": true,
+    "breadcrumbs_alignment": "text-start",
+    "breadcrumbs_background_color": "#f9f9f9",
+    "breadcrumbs_background_image": "shopify://shop_images/banner_1.jpg",
+    "rating_badge_stars": "<!-- Start of Judge.me code -->\n              <div class='jdgm-widget jdgm-preview-badge'>\n                  {{ product.metafields.judgeme.badge }} \n              </div>\n              <!-- End of Judge.me code -->",
+    "mode_version": false,
+    "social_tumblr_link": "#",
+    "enable_product_suggest": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": true,
+    "color_badge_background": "#000000",
+    "color_sale_text": "#000000",
+    "color_sale_background": "#ff8500",
+    "enable_bootstrap": false,
+    "buttons_border_thickness": 1,
+    "buttons_radius": 0,
+    "buttons_min_height": 50,
+    "color_image_overlay": "#000000",
+    "color_secondary": "#000000",
+    "color_text": "#000000",
+    "color_body_text": "#000000",
+    "color_button": "#ff8500",
+    "color_button_text": "#000000",
+    "color_button_secondary": "#269700",
+    "color_small_button_text_border": "#fff",
+    "color_schemes": {
+      "background-1": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#000000",
+          "button": "#ff8500",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#ffffff"
+        }
+      },
+      "background-2": {
+        "settings": {
+          "background": "#f6f6f6",
+          "background_gradient": "",
+          "text": "#000000",
+          "button": "#ff8500",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212"
+        }
+      },
+      "inverse": {
+        "settings": {
+          "background": "#242833",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#000000",
+          "secondary_button_label": "#ffffff"
+        }
+      },
+      "accent-1": {
+        "settings": {
+          "background": "#121212",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#121212",
+          "secondary_button_label": "#ffffff"
+        }
+      },
+      "accent-2": {
+        "settings": {
+          "background": "#fcf9ec",
+          "background_gradient": "",
+          "text": "#000000",
+          "button": "#113034",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#000000"
+        }
+      },
+      "scheme-ac0dd53c-d5a9-4639-9a77-0e9add251e4d": {
+        "settings": {
+          "background": "#f5f7f7",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ff8500",
+          "button_label": "#000000",
+          "secondary_button_label": "#ffffff"
+        }
+      }
+    },
+    "sections": {
+      "custom-color-swatches": {
+        "type": "custom-color-swatches",
+        "blocks": {
+          "color_item_K4eWW7": {
+            "type": "color_item",
+            "settings": {
+              "title": "Light blue",
+              "background": "#cbd6dc",
+              "background_gradient": ""
+            }
+          },
+          "color_item_jxfbQd": {
+            "type": "color_item",
+            "settings": {
+              "title": "Dark green",
+              "background": "#4e513b",
+              "background_gradient": ""
+            }
+          },
+          "color_item_H8Ad8T": {
+            "type": "color_item",
+            "settings": {
+              "title": "Dark blue",
+              "background": "#1b1f2d",
+              "background_gradient": ""
+            }
+          }
+        },
+        "block_order": [
+          "color_item_K4eWW7",
+          "color_item_jxfbQd",
+          "color_item_H8Ad8T"
+        ],
+        "settings": {}
+      },
+      "password-header": {
+        "type": "password-header",
+        "settings": {
+          "logo": "shopify://shop_images/LOGO_d23b0e42-37b6-4216-9c04-c07b37dcc194.png",
+          "logo_max_width": 260,
+          "header": "Coming Soon"
+        }
+      },
+      "password-footer": {
+        "type": "password-footer",
+        "settings": {
+          "show_share_buttons": true
+        }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "1439897083625640197": {
+        "type": "shopify://apps/cart-by-breeze/blocks/breeze-cart/f3bd0f31-4ceb-4abf-b1f0-9a82592084c4",
+        "disabled": false,
+        "settings": {}
+      },
+      "10835620152770840175": {
+        "type": "shopify://apps/xb-sticky-add-to-cart/blocks/satc/019ab3af-f172-72de-8bba-d1737c6c0d1e",
+        "disabled": true,
+        "settings": {}
+      },
+      "23348512398354824": {
+        "type": "shopify://apps/wi-atc/blocks/wizz-atc-embed/dc8c508e-8349-4d4e-adb8-536f2f71bace",
+        "disabled": true,
+        "settings": {}
+      },
+      "2200952712151285029": {
+        "type": "shopify://apps/microsoft-clarity/blocks/brandAgents_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
+        "disabled": false,
+        "settings": {}
+      },
+      "2567389343055140935": {
+        "type": "shopify://apps/microsoft-clarity/blocks/clarity_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  }
+}
